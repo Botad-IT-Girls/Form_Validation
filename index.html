@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form_validation</title>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.14.0/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="./assets/css/style.css">
+</head>
+
+<body>
+    <h1>Form validation</h1>
+    <form action="" id="FormValidation">
+        <div>
+            <label for="fName">First Name:</label>
+            <input type="text" name="fName" id="fName">
+            <span id="fName-ErrorMsg"></span>
+        </div>
+
+        <div>
+            <label for="lName">Last Name:</label>
+            <input type="text" name="lName" id="lName">
+            <span id="lName-ErrorMsg"></span>
+        </div>
+
+        <div>
+            <label for="DOB">Date Of Birth:</label>
+            <input type="text" name="DOB" id="DOB" placeholder="dd-mm-yyyy">
+            <span class="ErrorMsg"></span>
+        </div>
+
+        <div>
+            <label for="Uni">Select Your University:</label>
+            <select name="Uni" id="Uni">
+                <option value="" disabled selected>Select </option>
+                <option value="IIT Gandhinagar">IIT Gandhinagar</option>
+                <option value="IIT Dehli">IIT Dehli</option>
+                <option value="Parul University">Parul University</option>
+                <option value="Silver Oak University">Silver Oak University</option>
+            </select>
+            <span class="Uni-ErrorMsg"></span>
+        </div>
+
+        <div>
+            <label>Gender:</label>
+            <input type="radio" name="Gender" id="Male" value="Male">
+            <label for="Male">Male</label>
+            <input type="radio" name="Gender" id="Female" value="Female">
+            <label for="Female">Female</label>
+            <span id="Gender-ErrorMsg"></span>
+        </div>
+
+        <div>
+            <label for="MoNumber">Mobile Number:</label>
+            <input type="text" name="MoNumber" id="MoNumber" placeholder="XXXXX XXXXX">
+            <span id="MoNumber-ErrorMsg"></span>
+        </div>
+
+        <div>
+            <label for="emailId">Email Id:</label>
+            <input type="text" name="emailId" id="emailId">
+            <span id="Email-ErrorMsg"></span>
+        </div>
+
+        <div>
+            <label for="Password">Password:</label>
+            <input type="text" name="Pass" id="Password">
+            <span id="Password-ErrorMsg"></span>
+        </div>
+
+        <div>
+            <label for="CPass">Confirm Password:</label>
+            <input type="text" name="CPass" id="CPass">
+            <span id="Cpass-ErrorMsg"></span>
+        </div>
+
+        <div>
+            <label>Favriout Food:</label>
+            <input type="checkbox" name="fevFood" id="Pasta" value="Pasta">
+            <label for="Pasta">Pasta</label>
+            <input type="checkbox" name="fevFood" id="Noodles" value="Noodles">
+            <label for="Noodles">Noodles</label>
+            <input type="checkbox" name="fevFood" id="Maggi" value="Maggi">
+            <label for="Maggi">Maggi</label>
+            <input type="checkbox" name="fevFood" id="Ramen" value="Ramen">
+            <label for="Ramen">Ramen</label>
+            <input type="checkbox" name="fevFood" id="Burger" value="Burger">
+            <label for="Burger">Burger</label>
+            <span id="CheckBox-ErrorMsg"></span>
+        </div>
+
+        <div>
+            <label for="msg">Enter Massage:</label>
+            <textarea name="msg" id="msg" rows="3" cols="30"></textarea>
+            <span id="Massage-ErrorMsg"></span>
+
+        </div>
+        <div>
+            <input type="submit" value="submit">
+        </div>
+
+    </form>
+
+    <table id="Display-info">
+        <tr>
+            <th>First Name:</th>
+            <td>Display-info</td>
+            <th>Last Name:</th>
+            <th>Date Of Birth:</th>
+            <th>Gender:</th>
+            <th>Mobile Number:</th>
+            <th>Email Id:</th>
+            <th>Password:</th>
+            <th>Confirm Password:</th>
+            <th>Favriout Food:</th>
+            <th>Massage:</th>
+        </tr>
+        <tbody id="tbody"></tbody>
+    </table>
+    <script src="./assets/js/jQuery/jquery-3.7.1.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.14.0/jquery-ui.js"></script>
+    <script src="./assets/js/script.js"></script>
+</body>
+
+</html>
