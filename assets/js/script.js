@@ -20,7 +20,7 @@ form.addEventListener("submit", (e) => {
   const mobileNumber = document.getElementById("mobile_no").value;
   const password = document.getElementById("password").value;
   const confirmPassword = document.getElementById("confirm_password").value;
-  const fevFood = document.querySelectorAll('input[type="checkbox"]');
+  const fevFood = document.querySelectorAll('input[type="checkbox"]:checked');
   const msg = document.getElementById("msg").value;
 
   let isValid = true;
@@ -144,11 +144,10 @@ form.addEventListener("submit", (e) => {
 
   // favriout food validate
   let ischecked = false;
-
+  let favFoodItems = [];
   fevFood.forEach((checkbox) => {
-    if (checkbox.checked) {
-      ischecked = true;
-    }
+    ischecked = true;
+    favFoodItems.push(checkbox.value);
   });
   if (!ischecked) {
     document.getElementById("food_errormsg").innerHTML =
@@ -156,7 +155,7 @@ form.addEventListener("submit", (e) => {
     isValid = false;
   } else {
     document.getElementById("food_errormsg").innerHTML = "";
-    document.getElementById("fev_food").innerHTML = fevFood.value;
+    document.getElementById("fev_food").innerHTML = favFoodItems.join(", ");
   }
 
   // masg
