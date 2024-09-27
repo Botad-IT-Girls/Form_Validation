@@ -166,7 +166,7 @@ form.addEventListener("submit", (e) => {
     isValid = false;
   } else {
     document.getElementById("msg_errormsg").innerHTML = "";
-    document.getElementById("msg").innerHTML = msg;
+    document.getElementById("Massage").innerHTML = msg;
   }
 
   if (isValid) {
