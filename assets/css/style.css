@@ -41,5 +41,6 @@ input[type="submit"] {
 }
 
 table {
-  display: block;
+  display: none;
+  text-align: left;
 }

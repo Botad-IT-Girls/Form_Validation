@@ -1,138 +1,175 @@
-const forms = document.getElementById("FormValidation");
-
-const input = document.querySelectorAll("input");
-const ErrorMsgs = document.querySelectorAll("span");
+const form = document.getElementById("FormValidation");
 const table = document.getElementById("Display-info");
 const tableBody = document.getElementById("tBody");
 
 // dob
 $(document).ready(function () {
   // Initialize datepicker to field date of birth
-  $("#DOB").datepicker();
+  $("#dob").datepicker();
 });
 
-forms.addEventListener("submit", (e) => {
+form.addEventListener("submit", (e) => {
+  e.preventDefault();
+
+  const firstName = document.getElementById("first_name").value.trim();
+  const lastName = document.getElementById("last_name").value;
+  const dob = document.getElementById("dob").value;
+  const university = document.getElementById("university").value;
+  const gender = document.querySelector('input[name="Gender"]:checked');
+  const emailId = document.getElementById("email_id").value;
+  const mobileNumber = document.getElementById("mobile_no").value;
+  const password = document.getElementById("password").value;
+  const confirmPassword = document.getElementById("confirm_password").value;
+  const fevFood = document.querySelectorAll('input[type="checkbox"]');
+  const msg = document.getElementById("msg").value;
+
   let isValid = true;
-  input.forEach((input) => {
-    // first name validate
-    const FName = document.getElementById("fName").value;
-    if (FName === "" || FName === null) {
-      document.getElementById("fName-ErrorMsg").innerHTML =
-        "*Pls Enter First Name";
-      isValid = false;
-    } else if (!isNaN(FName)) {
-      document.getElementById("fName-ErrorMsg").innerHTML =
-        "*Pls Enter Valid Name";
-      isValid = false;
-    } else {
-      document.getElementById("fName-ErrorMsg").innerHTML = "";
-    }
 
-    // Last name validate
-    const lName = document.getElementById("lName").value;
-    if (lName === "" || lName === null) {
-      document.getElementById("lName-ErrorMsg").innerHTML =
-        "*pls Enter Last Name";
-      isValid = false;
-    } else if (!isNaN(lName)) {
-      document.getElementById("lName-ErrorMsg").innerHTML = "*Enter Valid Name";
-      isValid = false;
-    } else {
-      document.getElementById("lName-ErrorMsg").innerHTML = "";
-    }
+  // first name validate
+  if (firstName === "" || firstName === null) {
+    document.getElementById("first_name_errormsg").innerHTML =
+      "*Pls Enter First Name";
+    isValid = false;
+  } else if (!isNaN(firstName)) {
+    document.getElementById("first_name_errormsg").innerHTML =
+      "*Pls Enter Valid Name";
+    isValid = false;
+  } else {
+    document.getElementById("first_name_errormsg").innerHTML = "";
+    document.getElementById("fname").innerHTML = firstName;
+  }
 
-    // Gender validate
-    const radio = document.querySelector('input[name="Gender"]:checked');
-    if (radio === null) {
-      document.getElementById("Gender-ErrorMsg").innerHTML =
-        "*Pls Select Gender";
-      isValid = false;
-    } else {
-      document.getElementById("Gender-ErrorMsg").innerHTML = "";
-    }
+  // Last name validate
+  if (lastName === "" || lastName === null) {
+    document.getElementById("last_name_errormsg").innerHTML =
+      "*pls Enter Last Name";
+    isValid = false;
+  } else if (!isNaN(lastName)) {
+    document.getElementById("last_name_errormsg").innerHTML =
+      "*Enter Valid Name";
+    isValid = false;
+  } else {
+    document.getElementById("last_name_errormsg").innerHTML = "";
+    document.getElementById("lname").innerHTML = lastName;
+  }
 
-    // email-id validate
-    const EmailId = document.getElementById("emailId");
-    if (EmailId.value === "" || EmailId.value === null) {
-      document.getElementById("Email-ErrorMsg").innerHTML =
-        "*Pls Enter Email Id";
-      isValid = false;
-    } else if (
-      EmailId.value.indexOf("@") === -1 ||
-      EmailId.value.indexOf(".") === -1
-    ) {
-      document.getElementById("Email-ErrorMsg").innerHTML =
-        "*Pls Enter Valid Email-Id";
-      isValid = false;
-    } else {
-      document.getElementById("Email-ErrorMsg").innerHTML = "";
-    }
+  // date of birth
+  if (dob === "" || dob === null) {
+    document.getElementById("dob_errormsg").innerHTML =
+      "*pls Enter Date of Birth";
+    isValid = false;
+  } else {
+    document.getElementById("dob_errormsg").innerHTML = "";
+    document.getElementById("Dob").innerHTML = dob;
+  }
 
-    // mobile no validate
-    const MoNumber = document.getElementById("MoNumber");
-    if (MoNumber.value === "" || MoNumber.value === null) {
-      document.getElementById("MoNumber-ErrorMsg").innerHTML =
-        "*pls Enter Mobile No";
-      isValid = false;
-    } else if (isNaN(MoNumber.value)) {
-      document.getElementById("MoNumber-ErrorMsg").innerHTML =
-        "*Pls Enter Valid Number";
-      isValid = false;
-    } else if (MoNumber.value.length < 10 || MoNumber.value.length > 10) {
-      document.getElementById("MoNumber-ErrorMsg").innerHTML =
-        "*Pls Enter 10 Digits";
-      isValid = false;
-    } else {
-      document.getElementById("MoNumber-ErrorMsg").innerHTML = "";
-    }
+  // Select Uni
+  if (university === "") {
+    document.getElementById("university_errormsg").innerHTML =
+      "*Pls Select University";
+    isValid = false;
+  } else {
+    document.getElementById("university_errormsg").innerHTML = "";
+    document.getElementById("Uni").innerHTML = university;
+  }
 
-    // password validate
-    const Password = document.getElementById("Password");
-    if (Password.value === "" || Password.value === null) {
-      document.getElementById("Password-ErrorMsg").innerHTML =
-        "*Pls Enter Password";
-      isValid = false;
-    } else if (Password.value.length < 8) {
-      document.getElementById("Password-ErrorMsg").innerHTML =
-        "*Pls Enter Minimum 8 Character";
-      isValid = false;
-    } else {
-      document.getElementById("Password-ErrorMsg").innerHTML = "";
-    }
+  // Gender validate
+  if (gender === null) {
+    document.getElementById("gender_errormsg").innerHTML = "*Pls Select Gender";
+    isValid = false;
+  } else {
+    document.getElementById("gender_errormsg").innerHTML = "";
+    document.getElementById("gen").innerHTML = gender.value;
+  }
 
-    // confirm password validate
-    const ConPassword = document.getElementById("CPass");
-    if (ConPassword.value === "" || ConPassword.value === null) {
-      document.getElementById("Cpass-ErrorMsg").innerHTML =
-        "*Pls Enter Confirm Password";
-      isValid = false;
-    } else if (Password.value !== ConPassword.value) {
-      document.getElementById("Cpass-ErrorMsg").innerHTML =
-        "*Pls Enter Same Password";
-      isValid = false;
-    } else {
-      document.getElementById("Cpass-ErrorMsg").innerHTML = "";
-    }
+  // mobile no validate
+  if (mobileNumber === "" || mobileNumber === null) {
+    document.getElementById("mobile_no_errormsg").innerHTML =
+      "*pls Enter Mobile No";
+    isValid = false;
+  } else if (isNaN(mobileNumber)) {
+    document.getElementById("mobile_no_errormsg").innerHTML =
+      "*Pls Enter Valid Number";
+    isValid = false;
+  } else if (mobileNumber.length < 10 || mobileNumber.length > 10) {
+    document.getElementById("mobile_no_errormsg").innerHTML =
+      "*Pls Enter 10 Digits";
+    isValid = false;
+  } else {
+    document.getElementById("mobile_no_errormsg").innerHTML = "";
+    document.getElementById("mob_no").innerHTML = mobileNumber;
+  }
 
-    // favriout food validate
-    const checkBoxs = document.querySelectorAll('input[type="checkbox"]');
-    let ischecked = false;
+  // email-id validate
+  if (emailId === "" || emailId === null) {
+    document.getElementById("email_id_errormsg").innerHTML =
+      "*Pls Enter Email Id";
+    isValid = false;
+  } else if (emailId.indexOf("@") === -1 || emailId.indexOf(".") === -1) {
+    document.getElementById("email_id_errormsg").innerHTML =
+      "*Pls Enter Valid Email-Id";
+    isValid = false;
+  } else {
+    document.getElementById("email_id_errormsg").innerHTML = "";
+    document.getElementById("emailid").innerHTML = emailId;
+  }
 
-    checkBoxs.forEach((checkbox) => {
-      if (checkbox.checked) {
-        ischecked = true;
-      }
-    });
-    if (!ischecked) {
-      document.getElementById("CheckBox-ErrorMsg").innerHTML =
-        "*Pls Select Favriout Food";
-      isValid = false;
-    } else {
-      document.getElementById("CheckBox-ErrorMsg").innerHTML = "";
+  // password validate
+  if (password === "" || password === null) {
+    document.getElementById("password_errormsg").innerHTML =
+      "*Pls Enter Password";
+    isValid = false;
+  } else if (password.length < 8) {
+    document.getElementById("password_errormsg").innerHTML =
+      "*Pls Enter Minimum 8 Character";
+    isValid = false;
+  } else {
+    document.getElementById("password_errormsg").innerHTML = "";
+    document.getElementById("Password").innerHTML = password;
+  }
+
+  // confirm password validate
+  if (confirmPassword === "" || confirmPassword === null) {
+    document.getElementById("confirm_password_errormsg").innerHTML =
+      "*Pls Enter Confirm Password";
+    isValid = false;
+  } else if (password !== confirmPassword) {
+    document.getElementById("confirm_password_errormsg").innerHTML =
+      "*Pls Enter Same Password";
+    isValid = false;
+  } else {
+    document.getElementById("confirm_password_errormsg").innerHTML = "";
+    document.getElementById("con_pass").innerHTML = confirmPassword;
+  }
+
+  // favriout food validate
+  let ischecked = false;
+
+  fevFood.forEach((checkbox) => {
+    if (checkbox.checked) {
+      ischecked = true;
     }
   });
+  if (!ischecked) {
+    document.getElementById("food_errormsg").innerHTML =
+      "*Pls Select Favriout Food";
+    isValid = false;
+  } else {
+    document.getElementById("food_errormsg").innerHTML = "";
+    document.getElementById("fev_food").innerHTML = fevFood.value;
+  }
 
-  if (!isValid) {
-    e.preventDefault();
+  // masg
+  if (msg === "") {
+    document.getElementById("msg_errormsg").innerHTML =
+      "*Pls Enter Your Massage";
+    isValid = false;
+  } else {
+    document.getElementById("msg_errormsg").innerHTML = "";
+    document.getElementById("msg").innerHTML = msg;
+  }
+
+  if (isValid) {
+    table.style.display = "block";
   }
 });

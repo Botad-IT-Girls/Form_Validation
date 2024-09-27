@@ -1,126 +1,200 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Form_validation</title>
-    <link rel="stylesheet" href="https://code.jquery.com/ui/1.14.0/themes/base/jquery-ui.css">
-    <link rel="stylesheet" href="./assets/css/style.css">
-</head>
+    <!-- <link
+      rel="stylesheet"
+      href="https://code.jquery.com/ui/1.14.0/themes/base/jquery-ui.css"
+    /> -->
+    <link
+      rel="stylesheet"
+      href="./assets/js/jQuery/jquery-ui-1.14.0.custom/jquery-ui.css"
+    />
+    <!-- Custom css -->
+    <link rel="stylesheet" href="./assets/css/style.css" />
+  </head>
 
-<body>
+  <body>
     <h1>Form validation</h1>
     <form action="" id="FormValidation">
-        <div>
-            <label for="fName">First Name:</label>
-            <input type="text" name="fName" id="fName">
-            <span id="fName-ErrorMsg"></span>
-        </div>
+      <div>
+        <label for="first_name">First Name:</label>
+        <input
+          type="text"
+          name="first_name"
+          id="first_name"
+          placeholder="First Name"
+        />
+        <span id="first_name_errormsg"></span>
+      </div>
 
-        <div>
-            <label for="lName">Last Name:</label>
-            <input type="text" name="lName" id="lName">
-            <span id="lName-ErrorMsg"></span>
-        </div>
+      <div>
+        <label for="last_name">Last Name:</label>
+        <input
+          type="text"
+          name="last_name"
+          id="last_name"
+          placeholder="Last Name"
+        />
+        <span id="last_name_errormsg"></span>
+      </div>
 
-        <div>
-            <label for="DOB">Date Of Birth:</label>
-            <input type="text" name="DOB" id="DOB" placeholder="dd-mm-yyyy">
-            <span class="ErrorMsg"></span>
-        </div>
+      <div>
+        <label for="dob">Date Of Birth:</label>
+        <input type="text" name="dob" id="dob" placeholder="dd-mm-yyyy" />
+        <span id="dob_errormsg"></span>
+      </div>
 
-        <div>
-            <label for="Uni">Select Your University:</label>
-            <select name="Uni" id="Uni">
-                <option value="" disabled selected>Select </option>
-                <option value="IIT Gandhinagar">IIT Gandhinagar</option>
-                <option value="IIT Dehli">IIT Dehli</option>
-                <option value="Parul University">Parul University</option>
-                <option value="Silver Oak University">Silver Oak University</option>
-            </select>
-            <span class="Uni-ErrorMsg"></span>
-        </div>
+      <div>
+        <label for="university">Select Your University:</label>
+        <select name="university" id="university">
+          <option value="" disabled selected>Select</option>
+          <option value="IIT Gandhinagar">IIT Gandhinagar</option>
+          <option value="IIT Dehli">IIT Dehli</option>
+          <option value="Parul University">Parul University</option>
+          <option value="Silver Oak University">Silver Oak University</option>
+        </select>
+        <span id="university_errormsg"></span>
+      </div>
 
-        <div>
-            <label>Gender:</label>
-            <input type="radio" name="Gender" id="Male" value="Male">
-            <label for="Male">Male</label>
-            <input type="radio" name="Gender" id="Female" value="Female">
-            <label for="Female">Female</label>
-            <span id="Gender-ErrorMsg"></span>
-        </div>
+      <div>
+        <label>Gender:</label>
+        <input type="radio" name="Gender" id="Male" value="Male" />
+        <label for="Male">Male</label>
+        <input type="radio" name="Gender" id="Female" value="Female" />
+        <label for="Female">Female</label>
+        <span id="gender_errormsg"></span>
+      </div>
 
-        <div>
-            <label for="MoNumber">Mobile Number:</label>
-            <input type="text" name="MoNumber" id="MoNumber" placeholder="XXXXX XXXXX">
-            <span id="MoNumber-ErrorMsg"></span>
-        </div>
+      <div>
+        <label for="mobile_no">Mobile Number:</label>
+        <input
+          type="text"
+          name="mobile_no"
+          id="mobile_no"
+          placeholder="XXXXX XXXXX"
+        />
+        <span id="mobile_no_errormsg"></span>
+      </div>
 
-        <div>
-            <label for="emailId">Email Id:</label>
-            <input type="text" name="emailId" id="emailId">
-            <span id="Email-ErrorMsg"></span>
-        </div>
+      <div>
+        <label for="email_id">Email Id:</label>
+        <input
+          type="text"
+          name="email_id"
+          id="email_id"
+          placeholder="abc@gmail.com"
+        />
+        <span id="email_id_errormsg"></span>
+      </div>
 
-        <div>
-            <label for="Password">Password:</label>
-            <input type="text" name="Pass" id="Password">
-            <span id="Password-ErrorMsg"></span>
-        </div>
+      <div>
+        <label for="password">Password:</label>
+        <input
+          type="text"
+          name="password"
+          id="password"
+          placeholder="********"
+        />
+        <span id="password_errormsg"></span>
+      </div>
 
-        <div>
-            <label for="CPass">Confirm Password:</label>
-            <input type="text" name="CPass" id="CPass">
-            <span id="Cpass-ErrorMsg"></span>
-        </div>
+      <div>
+        <label for="confirm_password">Confirm Password:</label>
+        <input
+          type="text"
+          name="confirm_password"
+          id="confirm_password"
+          placeholder="Enter Confirm Password"
+        />
+        <span id="confirm_password_errormsg"></span>
+      </div>
 
-        <div>
-            <label>Favriout Food:</label>
-            <input type="checkbox" name="fevFood" id="Pasta" value="Pasta">
-            <label for="Pasta">Pasta</label>
-            <input type="checkbox" name="fevFood" id="Noodles" value="Noodles">
-            <label for="Noodles">Noodles</label>
-            <input type="checkbox" name="fevFood" id="Maggi" value="Maggi">
-            <label for="Maggi">Maggi</label>
-            <input type="checkbox" name="fevFood" id="Ramen" value="Ramen">
-            <label for="Ramen">Ramen</label>
-            <input type="checkbox" name="fevFood" id="Burger" value="Burger">
-            <label for="Burger">Burger</label>
-            <span id="CheckBox-ErrorMsg"></span>
-        </div>
+      <div>
+        <label>Favriout Food:</label>
+        <input type="checkbox" id="Pasta" value="Pasta" />
+        <label for="Pasta">Pasta</label>
+        <input type="checkbox" id="Noodles" value="Noodles" />
+        <label for="Noodles">Noodles</label>
+        <input type="checkbox" id="Maggi" value="Maggi" />
+        <label for="Maggi">Maggi</label>
+        <input type="checkbox" id="Ramen" value="Ramen" />
+        <label for="Ramen">Ramen</label>
+        <input type="checkbox" id="Burger" value="Burger" />
+        <label for="Burger">Burger</label>
+        <span id="food_errormsg"></span>
+      </div>
 
-        <div>
-            <label for="msg">Enter Massage:</label>
-            <textarea name="msg" id="msg" rows="3" cols="30"></textarea>
-            <span id="Massage-ErrorMsg"></span>
-
-        </div>
-        <div>
-            <input type="submit" value="submit">
-        </div>
-
+      <div>
+        <label for="msg">Enter Massage:</label>
+        <textarea
+          name="msg"
+          id="msg"
+          rows="3"
+          cols="30"
+          placeholder="Enter Your Massage"
+        ></textarea>
+        <span id="msg_errormsg"></span>
+      </div>
+      <div>
+        <input type="submit" value="submit" />
+      </div>
     </form>
-
     <table id="Display-info">
-        <tr>
-            <th>First Name:</th>
-            <td>Display-info</td>
-            <th>Last Name:</th>
-            <th>Date Of Birth:</th>
-            <th>Gender:</th>
-            <th>Mobile Number:</th>
-            <th>Email Id:</th>
-            <th>Password:</th>
-            <th>Confirm Password:</th>
-            <th>Favriout Food:</th>
-            <th>Massage:</th>
-        </tr>
-        <tbody id="tbody"></tbody>
-    </table>
-    <script src="./assets/js/jQuery/jquery-3.7.1.min.js"></script>
-    <script src="https://code.jquery.com/ui/1.14.0/jquery-ui.js"></script>
-    <script src="./assets/js/script.js"></script>
-</body>
+      <tr>
+        <th>First Name:</th>
+        <td id="fname"></td>
+      </tr>
+      <tr>
+        <th>Last Name:</th>
+        <td id="lname"></td>
+      </tr>
+      <tr>
+        <th>Date Of Birth:</th>
+        <td id="Dob"></td>
+      </tr>
+      <tr>
+        <th>University:</th>
+        <td id="Uni"></td>
+      </tr>
+      <tr>
+        <th>Gender:</th>
+        <td id="gen"></td>
+      </tr>
+      <tr>
+        <th>Mobile Number:</th>
+        <td id="mob_no"></td>
+      </tr>
 
+      <tr>
+        <th>Email Id:</th>
+        <td id="emailid"></td>
+      </tr>
+      <tr>
+        <th>Password:</th>
+        <td id="Password"></td>
+      </tr>
+      <tr>
+        <th>Confirm Password:</th>
+        <td id="con_pass"></td>
+      </tr>
+      <tr>
+        <th>Favriout Food:</th>
+        <td id="fev_food"></td>
+      </tr>
+      <tr>
+        <th>Massage:</th>
+        <td id="Massage"></td>
+      </tr>
+    </table>
+
+    <!-- jquery -->
+    <script src="./assets/js/jQuery/jquery-3.7.1.min.js"></script>
+    <!-- for date picker -->
+    <script src="./assets/js/jQuery/jquery-ui-1.14.0.custom/jquery-ui.min.js"></script>
+    <!-- custome script -->
+    <script src="./assets/js/script.js"></script>
+  </body>
 </html>
