@@ -1,5 +1,5 @@
 const form = document.getElementById("FormValidation");
-const table = document.getElementById("Display-info");
+const table = document.getElementsByClassName("Display-info");
 const tableBody = document.getElementById("tBody");
 
 // dob
@@ -170,6 +170,6 @@ form.addEventListener("submit", (e) => {
   }
 
   if (isValid) {
-    table.style.display = "block";
+    document.querySelector("table").classList.remove("hide");
   }
 });

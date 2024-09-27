@@ -39,8 +39,10 @@ input[type="submit"] {
   background: black;
   color: white;
 }
-
-table {
-  display: none;
+.Display-info {
   text-align: left;
+}
+
+.hide {
+  display: none;
 }
