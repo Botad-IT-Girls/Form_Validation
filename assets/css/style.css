@@ -39,7 +39,8 @@ input[type="submit"] {
   background: black;
   color: white;
 }
-.Display-info {
+
+#Display-info {
   text-align: left;
 }
 
