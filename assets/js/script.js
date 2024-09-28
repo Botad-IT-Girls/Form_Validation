@@ -2,10 +2,11 @@ const form = document.getElementById("FormValidation");
 const table = document.getElementsByClassName("Display-info");
 const tableBody = document.getElementById("tBody");
 
-// dob
+// date picker
 $(document).ready(function () {
-  // Initialize datepicker to field date of birth
-  $("#dob").datepicker();
+  $("#dob").datepicker({
+    dateFormat: "dd-mm-yy",
+  });
 });
 
 form.addEventListener("submit", (e) => {
